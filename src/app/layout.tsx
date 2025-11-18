@@ -4,9 +4,30 @@ import "@/styles/globals.css";
 import "@/styles/slick.css";
 import "@/styles/tableContent.css";
 import "@/styles/tailwind.css";
-import "@fontsource/roboto";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Roboto, Montserrat, Plus_Jakarta_Sans } from "next/font/google";
+
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+  variable: "--font-roboto"
+});
+
+const montserrat = Montserrat({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+  variable: "--font-montserrat"
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+  variable: "--font-plus-jakarta"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -24,25 +45,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vn">
+    <html
+      lang="vi"
+      className={`${roboto.variable} ${montserrat.variable} ${plusJakartaSans.variable}`}
+    >
       <head>
         <meta
           name="google-site-verification"
           content="XBEDSkrdjtlx6aHvRTTy14VU8X3C0NbmuETShBOlI74"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Plus+Jakarta+Sans:wght@200..800&family=Roboto:wght@100..900&display=swap"
-          rel="stylesheet"
-        />
+        {/* Preconnect to image CDN for faster LCP */}
+        <link rel="preconnect" href="https://admintuxa.ulsa.vn" />
+        <link rel="dns-prefetch" href="https://admintuxa.ulsa.vn" />
       </head>
-      <body className="bg-white text-gray-800">
+      <body className={`bg-white text-gray-800 ${roboto.className}`}>
         <Script id="gtm-script" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

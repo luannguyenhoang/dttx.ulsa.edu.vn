@@ -4,25 +4,26 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { ScrollView } from "../ScrollView";
 import { FeatureList } from "./FeatureList ";
+import { HeroSection } from "./Banner";
+import { FeaturesSection } from "./FeaturesSection";
 
-const HeroSection = dynamic(() =>
-  import("./Banner").then((mod) => mod.HeroSection)
-);
-const FeaturesSection = dynamic(() =>
-  import("./FeaturesSection").then((mod) => mod.FeaturesSection)
-);
+// Dynamic import for below-the-fold components
 const LandingSection = dynamic(() =>
   import("./LandingSection").then((mod) => mod.LandingSection)
 );
+
 const Category = dynamic(() =>
   import("./Category").then((mod) => mod.Category)
 );
+
 const WorldClassLearning = dynamic(() =>
   import("./WorldClassLearning").then((mod) => mod.WorldClassLearning)
 );
+
 const LatestNews = dynamic(() =>
   import("./LatestNews").then((mod) => mod.LatestNews)
 );
+
 const TestimonialsSlider = dynamic(() =>
   import("./Testimonials").then((mod) => mod.TestimonialsSlider)
 );

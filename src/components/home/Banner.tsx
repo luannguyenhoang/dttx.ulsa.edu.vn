@@ -76,16 +76,18 @@ export const HeroSection = (banner: any) => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id || `slide-${index}`}>
-            {" "}
-            {/* Đảm bảo key duy nhất */}
-            <div className="relative">
+            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[620px]">
               <Image
                 src={slide.image}
-                alt="Educational content"
-                width={2356}
-                height={1450}
-                className="w-full h-auto max-h-[620px] slide-right object-cover"
-                priority
+                alt={`Educational banner ${index + 1}`}
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority={index === 0}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                quality={75}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmX/9k="
               />
             </div>
           </SwiperSlide>
